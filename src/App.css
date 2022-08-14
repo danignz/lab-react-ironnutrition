@@ -33,6 +33,10 @@ body #root {
   margin-left: 0.25em;
 }
 
+button {
+  padding: 5px 10px;
+}
+
 .food-container {
   max-width: 60%;
   display: flex;
