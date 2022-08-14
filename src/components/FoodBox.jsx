@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Button } from 'antd';
 
-function FoodBox({ food }) {
+function FoodBox({ food, onDelete }) {
   return (
     <Col>
       <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
@@ -12,7 +12,7 @@ function FoodBox({ food }) {
           <b>Total Calories: {food.calories * food.servings} </b>
           kcal
         </p>
-        <Button type="primary"> Delete </Button>
+        <Button type="primary" onClick={() => onDelete(food.name)}>Delete</Button>
       </Card>
     </Col>
   );

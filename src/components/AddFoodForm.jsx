@@ -34,7 +34,7 @@ export default function AddFoodForm({ newFood }) {
   };
 
   return (
-    <form className="container" onSubmit={handleForm}>
+    <form onSubmit={handleForm}>
       <label>Name</label>
       <Input
         value={food.name}

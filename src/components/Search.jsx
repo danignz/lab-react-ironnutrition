@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 export default function Search({ onSearch }) {
   return (
-    <div className="container">
+    <div>
       <label>Search</label>
       <Input
         type="text"

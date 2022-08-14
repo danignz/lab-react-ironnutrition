@@ -13,7 +13,6 @@ h1 {
 
 .container {
   max-width: 60%;
-  /* margin: 40px auto; */
 }
 
 .separator {
@@ -42,7 +41,6 @@ button {
 }
 
 .food-container {
-  max-width: 60%;
   display: flex;
   flex-wrap: wrap;
 }

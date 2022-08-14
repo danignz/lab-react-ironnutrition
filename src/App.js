@@ -13,7 +13,7 @@ function App() {
     const updatedFoods = [...foodsList];
     updatedFoods.unshift(food);
     setFoods(updatedFoods);
-    /*Added state for not lost the added item whem reset the search bar list */
+    /* Added state to not lost the added item when reset the search bar list */
     setAddedList(updatedFoods);
   };
 
@@ -28,23 +28,26 @@ function App() {
     }
   };
 
+  const handleDelete = (name) => {
+    const remaining = foodsList.filter(elem => elem.name !== name);
+    setFoods(remaining);
+  }
+
   return (
     <div className="App">
       <div className="container">
         <h1 className="separator">Add Food Entry</h1>
-      </div>
-      <AddFoodForm newFood={handleNewFood} />
-      <div className="container">
+        <AddFoodForm newFood={handleNewFood} />
+
         <h1 className="separator">Search</h1>
-      </div>
-      <Search onSearch={handleSearch} />
-      <div className="container">
+        <Search onSearch={handleSearch} />
+
         <h1 className="separator">Food List</h1>
-      </div>
-      <div className="food-container">
-        {foodsList.map((food) => {
-          return <FoodBox key={food.name} food={food} />;
-        })}
+        <div className="food-container">
+          {foodsList.map((food) => {
+            return <FoodBox key={food.name} food={food} onDelete={handleDelete}/>;
+          })}
+        </div>
       </div>
     </div>
   );
