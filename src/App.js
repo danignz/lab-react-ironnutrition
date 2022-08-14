@@ -11,7 +11,7 @@ function App() {
       <div className="container">
         <h1 className="separator">Food List</h1>
       </div>
-      <div>
+      <div className="food-container">
         {foodsList.map((food) => {
           return <FoodBox key={food.name} food={food} />;
         })}

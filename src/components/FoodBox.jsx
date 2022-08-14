@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Col, Button } from 'antd';
 
-// Iteration 2
 function FoodBox({ food }) {
   return (
     <Col>
