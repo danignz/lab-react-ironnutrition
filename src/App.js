@@ -5,6 +5,7 @@ import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
 import Search from './components/Search';
 import { Button } from 'antd';
+import emptylist from './images/empty.png';
 
 function App() {
   const [foodsList, setFoods] = useState(foods);
@@ -46,18 +47,31 @@ function App() {
             <AddFoodForm newFood={handleNewFood} />
           </>
         )}
-        <Button id="form-btn" type="default" onClick={() => setShowForm(prev => !prev)}>{!showForm ? "Add New Food" : "Hide Form"}</Button>
+        <Button
+          id="form-btn"
+          type="default"
+          onClick={() => setShowForm((prev) => !prev)}
+        >
+          {!showForm ? 'Add New Food' : 'Hide Form'}
+        </Button>
 
         <h1 className="separator">Search</h1>
         <Search onSearch={handleSearch} />
 
         <h1 className="separator">Food List</h1>
         <div className="food-container">
-          {foodsList.map((food) => {
-            return (
-              <FoodBox key={food.name} food={food} onDelete={handleDelete} />
-            );
-          })}
+          {foodsList.length > 0 ? (
+            foodsList.map((food) => {
+              return (
+                <FoodBox key={food.name} food={food} onDelete={handleDelete} />
+              );
+            })
+          ) : (
+            <div style={{ margin: '0 auto' }}>
+              <h4>Oops! There is no more content to show</h4>
+              <img width="150px" src={emptylist} alt="empty list" />
+            </div>
+          )}
         </div>
       </div>
     </div>
